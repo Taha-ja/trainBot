@@ -41,6 +41,7 @@ def load_chrome_driver():
     return webdriver.Chrome(executable_path=str(os.environ.get("CHROMEDRIVER_PATH")), chrome_options=chrome_options)   
 def start(update,context):
     var.clear()
+    quest.clear()
     quest.append('quelle est votre ville de d\'arrivée?')
     quest.append("merci de saisir la date de départ")
     update.message.reply_text('welcom in our bot')
