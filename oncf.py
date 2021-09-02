@@ -123,15 +123,16 @@ def search(update,context):
 
 
     def results():
-        Str = f'les trains de {date} est:\n'
-        update.message.reply_text("i'm in the function result")
-        for info in ultimitInfo:
-            if info[0] not in List:
-            # if info[2]==min(prix_ticket):
-                List.append(info[0])
-                Str += f"De:{info[0]} à:{info[1]} prix:{info[2]} \n"
+         Str = f'les trains de {date} est:\n'
+#         update.message.reply_text("i'm in the function result")
+#         for info in ultimitInfo:
+#             if info[0] not in List:
+#             # if info[2]==min(prix_ticket):
+#                 List.append(info[0])
+#                 Str += f"De:{info[0]} à:{info[1]} prix:{info[2]} \n"
         return Str
-    update.message.reply_text(results())
+    a=results()
+    update.message.reply_text(a)
 #     update.message.reply_text(var)
 #     browser.quit()
     
