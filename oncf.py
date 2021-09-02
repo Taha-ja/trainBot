@@ -1,10 +1,4 @@
 import logging
-# Enable logging
-logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-                    level=logging.INFO)
-
-logger = logging.getLogger(__name__)
-
 import os
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 
@@ -14,6 +8,13 @@ from selenium.webdriver.common.keys import Keys
 import requests
 # from selenium.webdriver.common.action_chains import ActionChains
 import time, datetime
+# Enable logging
+logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+                    level=logging.INFO)
+
+logger = logging.getLogger(__name__)
+
+
 
 
 
@@ -30,6 +31,14 @@ disp=updater.dispatcher
 
 var=[]
 quest=[]
+def load_chrome_driver():
+
+    chrome_options = webdriver.ChromeOptions()
+    chrome_options.add_argument("--headless")
+    chrome_options.add_argument("--disable-dev-shm-usage")
+    chrome_options.add_argument("--no-sandbox")
+    chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
+    return webdriver.Chrome(executable_path=str(os.environ.get("CHROMEDRIVER_PATH")), chrome_options=chrome_options)   
 def start(update,context):
     var.clear()
     quest.append('quelle est votre ville de d\'arrivée?')
@@ -42,18 +51,15 @@ def msg(update,context):
         update.message.reply_text(quest[0])
         quest.pop(0)
 def search(update,context):
-    chrome_options = webdriver.ChromeOptions()
-    chrome_options.add_argument("--headless")
-    chrome_options.add_argument("--disable-dev-shm-usage")
-    chrome_options.add_argument("--no-sandbox")
-#     chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
-    browser = webdriver.Chrome(executable_path=ChromeDriverManager().install(), chrome_options=chrome_options)   
     startCity = var[0].upper()
     endCity = var[1].upper()
     date = var[2]
     url = f'https://www.oncf.ma/fr/Horaires'
+    browser =load_chrome_driver()
+    update.message.reply_text('before getting url')
     browser.get(url)
     browser.implicitly_wait(5)
+    update.message.reply_text('after getting url')
     browser.find_element_by_xpath('//input[@id="autocomplete"]').send_keys(startCity)
     time.sleep(1)
     browser.find_element_by_xpath('//label[@for="autocomplete2"]/input').send_keys(endCity)
