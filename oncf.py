@@ -124,6 +124,7 @@ def search(update,context):
 
     def results():
         Str = f'les trains de {date} est:\n'
+        update.message.reply_text("i'm in the function result")
         for info in ultimitInfo:
             if info[0] not in List:
             # if info[2]==min(prix_ticket):
