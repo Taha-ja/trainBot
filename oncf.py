@@ -13,18 +13,18 @@ token='1968918139:AAGaQT5BLUWxhu_9CS1Owkddh1NwZU2e_QA'
 updater=Updater(token=token)
 disp=updater.dispatcher
 def start(update,context):
-    gChromeOptions = webdriver.ChromeOptions()
-    gChromeOptions.add_argument("window-size=1920x1480")
-    gChromeOptions.add_argument("disable-dev-shm-usage")
-    gDriver = webdriver.Chrome(
-        chrome_options=gChromeOptions, executable_path=ChromeDriverManager().install()
-    )
-    page=gDriver.get("https://www.python.org/")
-    time.sleep(3)
-    result=page.get_attribute("innerHTML")
+#     gChromeOptions = webdriver.ChromeOptions()
+#     gChromeOptions.add_argument("window-size=1920x1480")
+#     gChromeOptions.add_argument("disable-dev-shm-usage")
+#     gDriver = webdriver.Chrome(
+#         chrome_options=gChromeOptions, executable_path=ChromeDriverManager().install()
+#     )
+#     page=gDriver.get("https://www.python.org/")
+#     time.sleep(3)
+#     result=page.get_attribute("innerHTML")
     update.message.reply_text('wait a few moment')
-    update.message.reply_text(result)
-    gDriver.close()
+#     update.message.reply_text(result)
+#     gDriver.close()
 
 start_handler=CommandHandler('start',start)
 disp.add_handler(start_handler)
