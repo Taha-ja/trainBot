@@ -46,8 +46,8 @@ def search(update,context):
     chrome_options.add_argument("--headless")
     chrome_options.add_argument("--disable-dev-shm-usage")
     chrome_options.add_argument("--no-sandbox")
-    chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
-    browser = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)   
+#     chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
+    browser = webdriver.Chrome(executable_path=ChromeDriverManager().install(), chrome_options=chrome_options)   
     startCity = var[0].upper()
     endCity = var[1].upper()
     date = var[2]
