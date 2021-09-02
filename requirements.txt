@@ -1,5 +1,13 @@
-python-telegram-bot
-requests
-selenium
-webdriver-manager
+python-telegram-bot==13.7
+requests==2.26.0
+certifi==2021.5.30
+charset-normalizer==2.0.2
+selenium==3.141.0
+webdriver-manager==3.4.2
+urllib3==1.26.6
+distlib==0.3.2
+idna==3.2
+importlib-metadata==4.6.4
+pyinstaller==4.5.1
+pyinstaller-hooks-contrib==2021.2
 
