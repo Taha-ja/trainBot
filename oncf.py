@@ -3,7 +3,7 @@ import os
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 
 from selenium import webdriver
-# from webdriver_manager.chrome import ChromeDriverManager
+from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.keys import Keys
 import requests
 # from selenium.webdriver.common.action_chains import ActionChains
@@ -130,8 +130,8 @@ def search(update,context):
 #             # if info[2]==min(prix_ticket):
 #                 List.append(info[0])
 #                 Str += f"De:{info[0]} à:{info[1]} prix:{info[2]} \n"
-        return Str
-    a=results()
+         return Str
+    a=str(results())
     update.message.reply_text(a)
 #     update.message.reply_text(var)
 #     browser.quit()
