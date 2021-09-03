@@ -61,7 +61,6 @@ def search(update,context):
     update.message.reply_text('before getting url')
     browser.get(url)
     browser.implicitly_wait(5)
-    update.message.reply_text('after getting url')
     browser.find_element_by_xpath('//input[@id="autocomplete"]').send_keys(startCity)
     time.sleep(1)
     browser.find_element_by_xpath('//label[@for="autocomplete2"]/input').send_keys(endCity)
@@ -108,32 +107,28 @@ def search(update,context):
 
     rsp = True
     while rsp:
+        
+        # script = "window.scrollTo(0,document.body.scrollHeight)"
+        # browser.execute_script(script)
         getInformation()
-        script = "window.scrollTo(0,document.body.scrollHeight)"
-        browser.execute_script(script)
         time.sleep(2)
         try:
-            next = browser.find_element_by_xpath('//a[@tag="a"]')
+            next = browser.find_element_by_xpath('//div[@class="ant-card-body"]/a[@tag="a"]')
             next.click()
         except:
+            print("End of results!!")
             rsp = False
     
-    List = []
     ultimitInfo = zip(depart, arrive, prix_ticket)
-
+    print(ultimitInfo)
 
     def results():
-         Str = f'les trains de {date} est:\n'
-#         update.message.reply_text("i'm in the function result")
-#         for info in ultimitInfo:
-#             if info[0] not in List:
-#             # if info[2]==min(prix_ticket):
-#                 List.append(info[0])
-#                 Str += f"De:{info[0]} à:{info[1]} prix:{info[2]} \n"
-         return Str
-    a=str(results())
-    update.message.reply_text(a)
-#     update.message.reply_text(var)
+        Str = f'les trains de {date} est:\n'
+        for info in ultimitInfo:
+            # if info[2]==min(prix_ticket):
+                Str += f"De:{info[0]} à:{info[1]} prix:{info[2]} \n"
+        return Str
+    update.message.reply_text(results())
     browser.quit()
     
 start_handler=CommandHandler('start',start)
