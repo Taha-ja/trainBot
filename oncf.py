@@ -31,7 +31,7 @@ disp=updater.dispatcher
 
 var=[]
 quest=[]
-def load_chrome_driver():
+def load_chrome_driver(update,context):
     update.message.reply_text("inside load_chrome_driver")
     chrome_options = webdriver.ChromeOptions()
     chrome_options.add_argument("--headless")
