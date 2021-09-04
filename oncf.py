@@ -37,8 +37,7 @@ def load_chrome_driver():
     chrome_options.add_argument("--disable-dev-shm-usage")
     chrome_options.add_argument("--no-sandbox")
     chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
-    return webdriver.Chrome(webdriver.Chrome(ChromeDriverManager().install()), chrome_options=chrome_options)  
-#     return webdriver.Chrome(executable_path=str(os.environ.get("CHROMEDRIVER_PATH")), chrome_options=chrome_options)   
+    return webdriver.Chrome(executable_path=str(os.environ.get("CHROMEDRIVER_PATH")), chrome_options=chrome_options)   
 def start(update,context):
     var.clear()
     quest.clear()
