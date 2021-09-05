@@ -85,7 +85,9 @@ def search(update,context):
 #     button1Page1 = browser.find_element_by_xpath('//button[@type="submit"]')
     
     update.message.reply_text('search the button')
-    WebDriverWait(browser, 20).until(EC.element_to_be_clickable((By.XPATH,'//button[@type="submit"]'))).click()
+    wait=WebDriverWait(browser, 20)
+    button=wait.until(EC.element_to_be_clickable((By.XPATH,'//button[@type="submit"]')))
+    button.click()
 #     button1Page1.click()
     
     update.message.reply_text('click the button')
