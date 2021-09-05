@@ -75,19 +75,24 @@ def search(update,context):
     browser.find_element_by_xpath('//label[@for="datetimepickerDep"]/input').send_keys(date+' 00:00')
     update.message.reply_text('set the date')
     time.sleep(1)
-    browser.find_element_by_xpath('//label[@for="datetimepickerArr"]/input').send_keys(date+' 00:00')
+    input=browser.find_element_by_xpath('//label[@for="datetimepickerArr"]/input')
+    input.send_keys(date+' 00:00')
     time.sleep(2)
-    script = "window.scrollTo(0,document.body.scrollHeight)"
-    browser.execute_script(script)
+    button1Page1 = browser.find_element_by_xpath('//button[@type="submit"]')
+    input.click()
+    input.send_keys(keys.RETURN)
+    button1Page1.send_keys(keys.RETURN) 
+#     script = "window.scrollTo(0,document.body.scrollHeight)"
+#     browser.execute_script(script)
     time.sleep(5)
 #     button1Page1 = browser.find_element_by_xpath('//div[@class="form-item see-all show-on-desktop"]/button')
  
 #     button1Page1 = browser.find_element_by_xpath('//button[@type="submit"]')
     
     update.message.reply_text('search the button')
-    wait=WebDriverWait(browser, 20)
-    button=wait.until(EC.element_to_be_clickable((By.XPATH,'//button[@type="submit"]')))
-    button.click()
+#     wait=WebDriverWait(browser, 20)
+#     button=wait.until(EC.element_to_be_clickable((By.XPATH,'//button[@type="submit"]')))
+#     button.click()
 #     button1Page1.click()
     
     update.message.reply_text('click the button')
