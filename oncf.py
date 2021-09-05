@@ -6,7 +6,10 @@ from selenium import webdriver
 # from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.keys import Keys
 import requests
-# from selenium.webdriver.common.action_chains import ActionChains
+from selenium.webdriver.common.action_chains import ActionChains
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions as EC
 import time, datetime
 # Enable logging
 # logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
@@ -78,18 +81,16 @@ def search(update,context):
     browser.execute_script(script)
     time.sleep(5)
 #     button1Page1 = browser.find_element_by_xpath('//div[@class="form-item see-all show-on-desktop"]/button')
-    clicked=False
-    button1Page1 = browser.find_element_by_xpath('//button[@type="submit"]')
+ 
+#     button1Page1 = browser.find_element_by_xpath('//button[@type="submit"]')
     
     update.message.reply_text('search the button')
-    while clicked==False:
-        button1Page1.click()
-        button2Page1 = browser.find_element_by_xpath('//tr/td[6]/a')
-        if button2Page1.is_displayed()==True:
-            clicked=True
+    WebDriverWait(browser, 20).until(EC.element_to_be_clickable((By.XPATH,'//button[@type="submit"]'))).click()
+#     button1Page1.click()
+    
     update.message.reply_text('click the button')
     time.sleep(10)
-    
+    button2Page1 = browser.find_element_by_xpath('//tr/td[6]/a')
     button2Page1.click()
     time.sleep(15)
     browser.maximize_window()
