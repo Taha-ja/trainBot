@@ -77,7 +77,8 @@ def search(update,context):
     script = "window.scrollTo(0,document.body.scrollHeight)"
     browser.execute_script(script)
     time.sleep(5)
-    button1Page1 = browser.find_element_by_xpath('//div[@class="form-item see-all show-on-desktop"]/button')
+#     button1Page1 = browser.find_element_by_xpath('//div[@class="form-item see-all show-on-desktop"]/button')
+    button1Page1 = browser.find_element_by_xpath('//button[@type="submit"]')
     update.message.reply_text('search the button')
     button1Page1.click()
     update.message.reply_text('click the button')
