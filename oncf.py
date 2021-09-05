@@ -79,7 +79,6 @@ def search(update,context):
     input.send_keys(date+' 00:00')
     time.sleep(2)
     button1Page1 = browser.find_element_by_xpath('//button[@type="submit"]')
-    input.click()
     input.send_keys(Keys.RETURN)
     button1Page1.send_keys(Keys.RETURN) 
 #     script = "window.scrollTo(0,document.body.scrollHeight)"
