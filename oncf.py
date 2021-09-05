@@ -49,7 +49,7 @@ def search(update,context):
     date = var[2]
     url = f'https://www.oncf.ma/fr/Horaires'
     chrome_options = webdriver.ChromeOptions()
-    chrome_options.add_argument("--headless")
+    chrome_options.add_argument("--no-headless")
     chrome_options.add_argument("--disable-dev-shm-usage")
     chrome_options.add_argument("--no-sandbox")
     chrome_options.add_argument('--disable-gpu')
