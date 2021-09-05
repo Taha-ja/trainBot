@@ -51,6 +51,7 @@ def search(update,context):
     chrome_options = webdriver.ChromeOptions()
     chrome_options.add_argument("--headless")
     chrome_options.add_argument("--disable-dev-shm-usage")
+    chrome_options.add_argument("start-maximized")
     chrome_options.add_argument("--no-sandbox")
     chrome_options.add_argument('--disable-gpu')
     chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
@@ -58,7 +59,7 @@ def search(update,context):
     update.message.reply_text('before getting url')
     
     browser.get(url)
-    browser.maximize_window()
+#     browser.maximize_window()
     browser.implicitly_wait(5)
     browser.find_element_by_xpath('//input[@id="autocomplete"]').send_keys(startCity)
     update.message.reply_text('set the startCity')
