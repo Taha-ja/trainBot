@@ -30,15 +30,7 @@ disp=updater.dispatcher
 # questions=['quelle est votre ville de d\'arrivée?',"merci de saisir la date de départ"]
 
 var=[]
-quest=[]
-def load_chrome_driver():
-    chrome_options = webdriver.ChromeOptions()
-    chrome_options.add_argument("--headless")
-    chrome_options.add_argument("--disable-dev-shm-usage")
-    chrome_options.add_argument("--no-sandbox")
-    chrome_options.add_argument('--disable-gpu')
-    chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
-    return webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)   
+quest=[] 
 def start(update,context):
     var.clear()
     quest.clear()
@@ -56,8 +48,15 @@ def search(update,context):
     endCity = var[1].upper()
     date = var[2]
     url = f'https://www.oncf.ma/fr/Horaires'
-    browser =load_chrome_driver()
+    chrome_options = webdriver.ChromeOptions()
+    chrome_options.add_argument("--headless")
+    chrome_options.add_argument("--disable-dev-shm-usage")
+    chrome_options.add_argument("--no-sandbox")
+    chrome_options.add_argument('--disable-gpu')
+    chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
+    browser =webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
     update.message.reply_text('before getting url')
+    
     browser.get(url)
     browser.maximize_window()
     browser.implicitly_wait(5)
