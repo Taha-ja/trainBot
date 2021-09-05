@@ -71,8 +71,9 @@ def search(update,context):
     time.sleep(1)
     browser.find_element_by_xpath('//label[@for="datetimepickerArr"]/input').send_keys(date+' 00:00')
     time.sleep(4)
-    button1Page1 = browser.find_element_by_xpath('//div[@class="form-item see-all show-on-desktop"]/button')
-    button1Page1.click()
+    try:
+        button1Page1 = browser.find_element_by_xpath('//div[@class="form-item see-all show-on-desktop"]/button')
+        button1Page1.click()
     time.sleep(3)
     button2Page1 = browser.find_element_by_xpath('//tr/td[6]/a')
     button2Page1.click()
