@@ -73,8 +73,10 @@ def search(update,context):
     update.message.reply_text('set the date')
     time.sleep(1)
     browser.find_element_by_xpath('//label[@for="datetimepickerArr"]/input').send_keys(date+' 00:00')
-    time.sleep(10)
-  
+    time.sleep(2)
+    script = "window.scrollTo(0,document.body.scrollHeight)"
+    browser.execute_script(script)
+    time.sleep(5)
     button1Page1 = browser.find_element_by_xpath('//div[@class="form-item see-all show-on-desktop"]/button')
     update.message.reply_text('search the button')
     button1Page1.click()
