@@ -1,18 +1,18 @@
-import logging
+# import logging
 import os
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 
 from selenium import webdriver
-from webdriver_manager.chrome import ChromeDriverManager
+# from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.keys import Keys
 import requests
 # from selenium.webdriver.common.action_chains import ActionChains
 import time, datetime
 # Enable logging
-logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-                    level=logging.INFO)
+# logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+#                     level=logging.INFO)
 
-logger = logging.getLogger(__name__)
+# logger = logging.getLogger(__name__)
 
 
 
