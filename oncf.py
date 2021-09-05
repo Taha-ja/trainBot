@@ -80,10 +80,11 @@ def search(update,context):
 #     button1Page1 = browser.find_element_by_xpath('//div[@class="form-item see-all show-on-desktop"]/button')
     clicked=False
     button1Page1 = browser.find_element_by_xpath('//button[@type="submit"]')
-    button2Page1 = browser.find_element_by_xpath('//tr/td[6]/a')
+    
     update.message.reply_text('search the button')
     while clicked==False:
         button1Page1.click()
+        button2Page1 = browser.find_element_by_xpath('//tr/td[6]/a')
         if button2Page1.is_displayed()==True:
             clicked=True
     update.message.reply_text('click the button')
