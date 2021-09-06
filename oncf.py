@@ -118,12 +118,16 @@ def search(update,context):
     browser.maximize_window()
     newURl = browser.window_handles[1]
     browser.switch_to.window(newURl)
-    script = "window.scrollTo(0,600)"
-    browser.execute_script(script)
+#     script = "window.scrollTo(0,600)"
+#     browser.execute_script("window.scrollTo(0,600)";)
+    scroll=browser.find_element_by_tag_name('html')
+    scroll.send_keys(Keys.PAGE_DOWN)
     time.sleep(5)
-    update.message.reply_text('search the button search')
+    
     button = browser.find_element_by_xpath("//div[@class='searchForm_footer--right']/button")
-    button.click()
+    update.message.reply_text('search the button search')
+    browser.execute_script("arguments[0].click();", button)
+#     button.click()
     update.message.reply_text('click the button search')
     browser.implicitly_wait(10)
     time.sleep(5)
