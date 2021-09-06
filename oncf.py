@@ -65,7 +65,7 @@ def search(update,context):
     
     browser.get(url)
 #     browser.maximize_window()
-    time.sleep(5)
+    time.sleep(10)
     browser.find_element_by_xpath('//input[@id="autocomplete"]').send_keys(startCity)
     update.message.reply_text('set the startCity')
     time.sleep(1)
