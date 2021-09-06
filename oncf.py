@@ -92,7 +92,7 @@ def search(update,context):
     time.sleep(2)
     button1Page1 = browser.find_element_by_xpath('//form/div[@class="form-item see-all show-on-desktop"]/button')
 #     input.send_keys(Keys.RETURN)
-    update.message.reply_text('search the button')
+    update.message.reply_text('search the button1Page1')
     browser.execute_script("arguments[0].click();", button1Page1)
 #     button1Page1.send_keys(Keys.RETURN) 
 #     script = "window.scrollTo(0,document.body.scrollHeight)"
@@ -108,10 +108,12 @@ def search(update,context):
 #     button.click()
 #     button1Page1.click()
     
-    update.message.reply_text('click the button')
+    update.message.reply_text('click the button1Page1')
     time.sleep(10)
     button2Page1 = browser.find_element_by_xpath('//tr/td[6]/a')
+    update.message.reply_text('search the button2Page1')
     button2Page1.click()
+    update.message.reply_text('click the button2Page1')
     time.sleep(15)
     browser.maximize_window()
     newURl = browser.window_handles[1]
@@ -119,9 +121,10 @@ def search(update,context):
     script = "window.scrollTo(0,600)"
     browser.execute_script(script)
     time.sleep(5)
-
+    update.message.reply_text('search the button search')
     button = browser.find_element_by_xpath("//div[@class='searchForm_footer--right']/button")
     button.click()
+    update.message.reply_text('click the button search')
     browser.implicitly_wait(10)
     time.sleep(5)
 
