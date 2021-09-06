@@ -122,6 +122,11 @@ def search(update,context):
 #     browser.execute_script("window.scrollTo(0,600)";)
     scroll=browser.find_element_by_tag_name('html')
     scroll.send_keys(Keys.PAGE_DOWN)
+    scroll.send_keys(Keys.PAGE_DOWN)
+    scroll.send_keys(Keys.PAGE_DOWN)
+    scroll.send_keys(Keys.PAGE_DOWN)
+    scroll.send_keys(Keys.PAGE_DOWN)
+    scroll.send_keys(Keys.PAGE_DOWN)
     time.sleep(5)
     
     button = browser.find_element_by_xpath("//div[@class='searchForm_footer--right']/button")
