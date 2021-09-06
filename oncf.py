@@ -92,7 +92,9 @@ def search(update,context):
     time.sleep(2)
     button1Page1 = browser.find_element_by_xpath('//form/div[@class="form-item see-all show-on-desktop"]/button')
 #     input.send_keys(Keys.RETURN)
-    button1Page1.send_keys(Keys.RETURN) 
+    update.message.reply_text('search the button')
+    browser.execute_script("arguments[0].click();", button1Page1)
+#     button1Page1.send_keys(Keys.RETURN) 
 #     script = "window.scrollTo(0,document.body.scrollHeight)"
 #     browser.execute_script(script)
     time.sleep(5)
@@ -100,7 +102,7 @@ def search(update,context):
  
 #     button1Page1 = browser.find_element_by_xpath('//button[@type="submit"]')
     
-    update.message.reply_text('search the button')
+    
 #     wait=WebDriverWait(browser, 20)
 #     button=wait.until(EC.element_to_be_clickable((By.XPATH,'//button[@type="submit"]')))
 #     button.click()
