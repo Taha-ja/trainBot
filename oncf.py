@@ -77,7 +77,7 @@ def search(update,context):
     time.sleep(1)
     browser.find_element_by_xpath('//label[@for="datetimepickerArr"]/input').send_keys(date+' 00:00')
     time.sleep(2)
-    button1Page1 = browser.find_element_by_xpath('//form/div[2]/button')
+    button1Page1 = browser.find_element_by_xpath('//form/div[@class="form-item see-all show-on-desktop"]/button')
 #     input.send_keys(Keys.RETURN)
     button1Page1.send_keys(Keys.RETURN) 
 #     script = "window.scrollTo(0,document.body.scrollHeight)"
