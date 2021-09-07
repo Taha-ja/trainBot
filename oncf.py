@@ -129,7 +129,7 @@ def search(update,context):
     scroll.send_keys(Keys.PAGE_DOWN)
     browser.save_screenshot("screenshot.png")
     update.message.reply_text(os.getcwd())
-    update.message.bot.send_photo("screenshot.png")
+    update.message.bot.send_photo(photo="screenshot.png")
     scroll.send_keys(Keys.PAGE_DOWN)
     scroll.send_keys(Keys.PAGE_DOWN)
     scroll.send_keys(Keys.PAGE_DOWN)
