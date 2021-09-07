@@ -128,7 +128,7 @@ def search(update,context):
     scroll=browser.find_element_by_tag_name('html')
     scroll.send_keys(Keys.PAGE_DOWN)
     browser.save_screenshot("screenshot.png")
-    update.message.send_photo('screenshot.png')
+    update.message.reply_text(os.getcwd())
     scroll.send_keys(Keys.PAGE_DOWN)
     scroll.send_keys(Keys.PAGE_DOWN)
     scroll.send_keys(Keys.PAGE_DOWN)
