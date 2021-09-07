@@ -117,7 +117,7 @@ def search(update,context):
     button2Page1.click()
     update.message.reply_text('click the button2Page1')
     time.sleep(15)
-    browser.maximize_window()
+#     browser.maximize_window()
     newURl = browser.window_handles[1]
     browser.switch_to.window(newURl)
 #     script = "window.scrollTo(0,600)"
