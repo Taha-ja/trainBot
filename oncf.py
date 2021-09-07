@@ -118,8 +118,11 @@ def search(update,context):
     update.message.reply_text('click the button2Page1')
     time.sleep(15)
 #     browser.maximize_window()
+    update.message.reply_text(browser.title)
     newURl = browser.window_handles[1]
     browser.switch_to.window(newURl)
+    time.sleep(3)
+    update.message.reply_text(browser.title)
 #     script = "window.scrollTo(0,600)"
 #     browser.execute_script("window.scrollTo(0,600)";)
     scroll=browser.find_element_by_tag_name('html')
