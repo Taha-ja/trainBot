@@ -121,7 +121,7 @@ def search(update,context):
     time.sleep(15)
 #     browser.maximize_window()
     update.message.reply_text(browser.title)
-    newURl = browser.window_handles[1]
+    newURl = browser.window_handles[-1]
     browser.switch_to.window(newURl)
     time.sleep(15)
     update.message.reply_text(browser.title)
