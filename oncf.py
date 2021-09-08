@@ -123,13 +123,14 @@ def search(update,context):
     update.message.reply_text(browser.title)
 #     newURl = browser.window_handles[1]
 #     browser.switch_to.window(newURl)
-    time.sleep(10)
+    time.sleep(15)
     update.message.reply_text(browser.title)
-#     script = "window.scrollTo(0,600)"
-#     browser.execute_script("window.scrollTo(0,600)";)
-    scroll=browser.find_element_by_tag_name('html')
-    scroll.send_keys(Keys.PAGE_DOWN)
     browser.save_screenshot("screenshot.png")
+    script = "window.scrollTo(0,600)"
+    browser.execute_script("window.scrollTo(0,600)";)
+#     scroll=browser.find_element_by_tag_name('html')
+#     scroll.send_keys(Keys.PAGE_DOWN)
+    
     update.message.reply_text(os.getcwd())
     update.message.bot.send_photo(chat_id=update.effective_chat.id, photo=open('/app/screenshot.png', 'rb'))
 #     scroll.send_keys(Keys.PAGE_DOWN)
