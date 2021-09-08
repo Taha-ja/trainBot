@@ -125,7 +125,7 @@ def search(update,context):
     newURl = browser.window_handles[1]
     browser.switch_to.window(newURl)
     update.message.reply_text(browser.current_url)
-    time.sleep(15)
+    time.sleep(35)
     update.message.reply_text(browser.title)
     browser.save_screenshot("screenshot.png")
     script = "window.scrollTo(0,600)"
