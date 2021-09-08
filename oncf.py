@@ -113,7 +113,7 @@ def search(update,context):
 #     button1Page1.click()
     
     update.message.reply_text('click the button1Page1')
-    time.sleep(10)
+    time.sleep(6)
     button2Page1 = browser.find_element_by_xpath('//tr/td[6]/a')
     update.message.reply_text('search the button2Page1')
     button2Page1.click()
@@ -121,8 +121,10 @@ def search(update,context):
     time.sleep(15)
 #     browser.maximize_window()
     update.message.reply_text(browser.title)
-    newURl = browser.window_handles[-1]
+    update.message.reply_text(browser.current_url)
+    newURl = browser.window_handles[1]
     browser.switch_to.window(newURl)
+    update.message.reply_text(browser.current_url)
     time.sleep(15)
     update.message.reply_text(browser.title)
     browser.save_screenshot("screenshot.png")
