@@ -127,7 +127,7 @@ def search(update,context):
     update.message.reply_text(browser.title)
     browser.save_screenshot("screenshot.png")
     script = "window.scrollTo(0,600)"
-    browser.execute_script("window.scrollTo(0,600)";)
+    browser.execute_script(script)
 #     scroll=browser.find_element_by_tag_name('html')
 #     scroll.send_keys(Keys.PAGE_DOWN)
     
