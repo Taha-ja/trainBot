@@ -123,7 +123,7 @@ def search(update,context):
     update.message.reply_text(browser.title)
     newURl = browser.window_handles[1]
     browser.switch_to.window(newURl)
-    time.sleep(3)
+    time.sleep(10)
     update.message.reply_text(browser.title)
 #     script = "window.scrollTo(0,600)"
 #     browser.execute_script("window.scrollTo(0,600)";)
