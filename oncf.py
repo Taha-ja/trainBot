@@ -125,6 +125,8 @@ def search(update,context):
     newURl = browser.window_handles[1]
     browser.switch_to.window(newURl)
     update.message.reply_text(browser.current_url)
+    allGUID = driver.window_handles;
+    update.message.reply_text(allGUID)
     time.sleep(35)
     update.message.reply_text(browser.title)
     browser.save_screenshot("screenshot.png")
