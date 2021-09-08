@@ -129,7 +129,7 @@ def search(update,context):
     scroll.send_keys(Keys.PAGE_DOWN)
     browser.save_screenshot("screenshot.png")
     update.message.reply_text(os.getcwd())
-    update.message.bot.send_photo(chat_id=update.effective_chat.id, photo='https://pricetrain.herokuapp.com//app/screenshot.png')
+    update.message.bot.send_photo(chat_id=update.effective_chat.id, photo='https://pricetrain.herokuapp.com/app/screenshot.png')
 #     scroll.send_keys(Keys.PAGE_DOWN)
 #     scroll.send_keys(Keys.PAGE_DOWN)
 #     scroll.send_keys(Keys.PAGE_DOWN)
