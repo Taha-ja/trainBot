@@ -82,6 +82,8 @@ def search(update,context):
     time.sleep(1)
     dateAller.send_keys(Keys.RETURN)
     time.sleep(1)
+    browser.save_screenshot("screenshot1.png")
+    update.message.bot.send_photo(chat_id=update.effective_chat.id, photo=open('/app/screenshot1.png', 'rb'))
     dateRetour=browser.find_element_by_xpath('//label[@for="datetimepickerArr"]/input')
     dateRetour.send_keys(date+' 00:00')
     time.sleep(1)
