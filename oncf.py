@@ -119,12 +119,13 @@ def search(update,context):
     update.message.reply_text('search the button2Page1')
     button2Page1.click()
     update.message.reply_text('click the button2Page1')
-    time.sleep(15)
+    time.sleep(5)
 #     browser.maximize_window()
     update.message.reply_text(browser.title)
     update.message.reply_text(browser.current_url)
     newURl = browser.window_handles[1]
     browser.switch_to.window(newURl)
+    time.sleep(45)
     update.message.reply_text(browser.current_url)
     allGUID = browser.window_handles;
     update.message.reply_text(allGUID)
