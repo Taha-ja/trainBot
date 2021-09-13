@@ -63,7 +63,7 @@ def search(update,context):
     chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
     browser =webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
     update.message.reply_text('before getting url')
-    
+    update.message.reply_text(time.time())
     browser.get(url)
 #     browser.maximize_window()
     time.sleep(20)
