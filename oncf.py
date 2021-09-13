@@ -80,6 +80,9 @@ def search(update,context):
     nbJ=(dateA-dateToday).days
     url = f'https://www.oncf-voyages.ma/recherche-disponibilites/{cityDict[startCity]}/{cityDict[endCity]}/{t+86400*nbJ}'
     browser.get(url)
+    time.sleep(4)
+    browser.save_screenshot("screenshot1.png")
+    update.message.bot.send_photo(chat_id=update.effective_chat.id, photo=open('/app/screenshot1.png', 'rb'))	
     scroll=browser.find_element_by_tag_name('html')
     scroll.send_keys(Keys.PAGE_DOWN)
     button = browser.find_element_by_xpath("//div[@class='searchForm_footer  ']/div[@class='searchForm_footer--right']/button")
