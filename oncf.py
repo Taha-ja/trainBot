@@ -78,17 +78,18 @@ def search(update,context):
     dateNow=datetime.datetime.now()
     dateToday=datetime.datetime(dateNow.year,dateNow.month,dateNow.day)
     nbJ=(dateA-dateToday).days
-    url = f'https://www.oncf-voyages.ma/recherche-disponibilites/{cityDict[startCity]}/{cityDict[endCity]}/{t+86400*nbJ}'
+#     url = f'https://www.oncf-voyages.ma/recherche-disponibilites/{cityDict[startCity]}/{cityDict[endCity]}/{t+86400*nbJ}'
+    url="https://www.oncf-voyages.ma/recherche-disponibilites"	
     browser.get(url)
     time.sleep(4)
     browser.save_screenshot("screenshot1.png")
     update.message.bot.send_photo(chat_id=update.effective_chat.id, photo=open('/app/screenshot1.png', 'rb'))	
-    scroll=browser.find_element_by_tag_name('html')
-    scroll.send_keys(Keys.PAGE_DOWN)
-    button = browser.find_element_by_xpath("//div[@class='searchForm_footer  ']/div[@class='searchForm_footer--right']/button")
-    browser.execute_script("arguments[0].click();", button)
-    update.message.reply_text('click the button search')
-    browser.implicitly_wait(10)
+#     scroll=browser.find_element_by_tag_name('html')
+#     scroll.send_keys(Keys.PAGE_DOWN)
+#     button = browser.find_element_by_xpath("//div[@class='searchForm_footer  ']/div[@class='searchForm_footer--right']/button")
+#     browser.execute_script("arguments[0].click();", button)
+#     update.message.reply_text('click the button search')
+#     browser.implicitly_wait(10)
     time.sleep(5)
 
     depart = []
