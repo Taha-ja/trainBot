@@ -84,6 +84,7 @@ def search(update,context):
     #url="https://www.oncf-voyages.ma/recherche-disponibilites"	
     browser.get(url)
     time.sleep(4)
+    browser.implicitly_wait(10)
     browser.save_screenshot("screenshot1.png")
     update.message.bot.send_photo(chat_id=update.effective_chat.id, photo=open('/app/screenshot1.png', 'rb'))	
 #     scroll=browser.find_element_by_tag_name('html')
