@@ -80,8 +80,8 @@ def search(update,context):
     dateNow=datetime.datetime.now()
     dateToday=datetime.datetime(dateNow.year,dateNow.month,dateNow.day)
     nbJ=(dateA-dateToday).days
-#     url = f'https://www.oncf-voyages.ma/recherche-disponibilites/{cityDict[startCity]}/{cityDict[endCity]}/{t+86400*nbJ}'
-    url="https://www.oncf-voyages.ma/recherche-disponibilites"	
+    url = f'https://www.oncf-voyages.ma/recherche-disponibilites/{cityDict[startCity]}/{cityDict[endCity]}/{t+86400*nbJ}'
+    #url="https://www.oncf-voyages.ma/recherche-disponibilites"	
     browser.get(url)
     time.sleep(4)
     browser.save_screenshot("screenshot1.png")
