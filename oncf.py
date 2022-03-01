@@ -59,6 +59,7 @@ def search(update,context):
     startCity = var[0].upper()
     endCity = var[1].upper()
     date = var[2]
+    chrome_options = webdriver.ChromeOptions()
     chrome_options.experimental_options["prefs"] = { 
 	"profile.managed_default_content_settings.images": 2, 
 	"profile.managed_default_content_settings.stylesheets": 2, 
@@ -68,7 +69,7 @@ def search(update,context):
 	"profile.default_content_setting_values.notifications": 2, 
     }
     url = f'https://www.oncf.ma/fr/Horaires'
-    chrome_options = webdriver.ChromeOptions()
+    
     chrome_options.add_argument("--headless")
     chrome_options.add_argument("--disable-dev-shm-usage")
 #     chrome_options.add_argument("start-maximized")
