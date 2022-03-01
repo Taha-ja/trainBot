@@ -2,7 +2,7 @@
 import os
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 
-from seleniumwire import webdriver
+from selenium import webdriver
 # from webdriver_manager.chrome import ChromeDriverManager
 # from selenium.webdriver.common.keys import Keys
 # import requests
@@ -59,6 +59,14 @@ def search(update,context):
     startCity = var[0].upper()
     endCity = var[1].upper()
     date = var[2]
+    chrome_options.experimental_options["prefs"] = { 
+	"profile.managed_default_content_settings.images": 2, 
+	"profile.managed_default_content_settings.stylesheets": 2, 
+	"profile.managed_default_content_settings.javascript": 2, 
+	"profile.managed_default_content_settings.cookies": 2, 
+	"profile.managed_default_content_settings.geolocation": 2, 
+	"profile.default_content_setting_values.notifications": 2, 
+    }
     url = f'https://www.oncf.ma/fr/Horaires'
     chrome_options = webdriver.ChromeOptions()
     chrome_options.add_argument("--headless")
