@@ -4,12 +4,12 @@ from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 
 from seleniumwire import webdriver
 # from webdriver_manager.chrome import ChromeDriverManager
-from seleniumwire.webdriver.common.keys import Keys
-import requests
-from seleniumwire.webdriver.common.action_chains import ActionChains
-from seleniumwire.webdriver.support.ui import WebDriverWait
-from seleniumwire.webdriver.common.by import By
-from seleniumwire.webdriver.support import expected_conditions as EC
+# from selenium.webdriver.common.keys import Keys
+# import requests
+# from selenium.webdriver.common.action_chains import ActionChains
+# from selenium.webdriver.support.ui import WebDriverWait
+# from selenium.webdriver.common.by import By
+# from selenium.webdriver.support import expected_conditions as EC
 import time, datetime
 # Enable logging
 # logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
