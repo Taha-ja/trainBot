@@ -60,14 +60,8 @@ def search(update,context):
     endCity = var[1].upper()
     date = var[2]
     options = webdriver.ChromeOptions()
-    options.experimental_options["prefs"] = { 
-	"profile.managed_default_content_settings.images": 2, 
-	"profile.managed_default_content_settings.stylesheets": 2, 
-	"profile.managed_default_content_settings.javascript": 2, 
-	"profile.managed_default_content_settings.cookies": 2, 
-	"profile.managed_default_content_settings.geolocation": 2, 
-	"profile.default_content_setting_values.notifications": 2, 
-    }
+    proxy = "85.159.48.170:40014" # free proxy 
+    options.add_argument("--proxy-server=%s" % proxy) 
     url = f'https://www.oncf.ma/fr/Horaires'
     
     options.add_argument("--headless")
