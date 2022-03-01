@@ -59,8 +59,8 @@ def search(update,context):
     startCity = var[0].upper()
     endCity = var[1].upper()
     date = var[2]
-    chrome_options = webdriver.ChromeOptions()
-    chrome_options.experimental_options["prefs"] = { 
+    options = webdriver.ChromeOptions()
+    options.experimental_options["prefs"] = { 
 	"profile.managed_default_content_settings.images": 2, 
 	"profile.managed_default_content_settings.stylesheets": 2, 
 	"profile.managed_default_content_settings.javascript": 2, 
@@ -70,18 +70,18 @@ def search(update,context):
     }
     url = f'https://www.oncf.ma/fr/Horaires'
     
-    chrome_options.add_argument("--headless")
-    chrome_options.add_argument("--disable-dev-shm-usage")
+    options.add_argument("--headless")
+    options.add_argument("--disable-dev-shm-usage")
 #     chrome_options.add_argument("start-maximized")
-    chrome_options.add_argument("--remote-debugging-port=9222")
-    chrome_options.add_argument("--no-sandbox")
-    chrome_options.add_argument("--window-size=1920,1080")
-    chrome_options.add_argument('--ignore-certificate-errors')
+    options.add_argument("--remote-debugging-port=9222")
+    options.add_argument("--no-sandbox")
+    options.add_argument("--window-size=1920,1080")
+    options.add_argument('--ignore-certificate-errors')
 #     chrome_options.add_argument('--disable-gpu')
 #     chrome_options.add_argument("disable-infobars")
 #     chrome_options.add_argument("--disable-extensions")
-    chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
-    browser =webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
+    options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
+    browser =webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=options)
     time.sleep(5)
     t=int(time.time())-((datetime.datetime.now().time().hour)*3600+datetime.datetime.now().time().minute*60+datetime.datetime.now().time().second)
     Day=int(date[:2]);Month=int(date[3:5]);Year=int(date[6:])
