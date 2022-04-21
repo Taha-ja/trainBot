@@ -1,1 +1,1 @@
-web: python oncf.py runserver
+worker: python oncf.py
