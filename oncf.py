@@ -43,6 +43,18 @@ cityDict={
 	'TAZA':431,
 	'OUED AMLIL':423,
 }
+
+import asyncio
+from pyppeteer import launch
+
+async def main():
+    browser = await launch()
+    page = await browser.newPage()
+    await page.goto(f'https://www.oncf-voyages.ma/recherche-disponibilites/{cityDict[startCity]}/{cityDict[endCity]}/{t+86400*nbJ}')
+    await page.screenshot({'path': 'example.png'})
+    await browser.close()
+
+asyncio.get_event_loop().run_until_complete(main())
 def start(update,context):
     var.clear()
     quest.clear()
@@ -55,7 +67,7 @@ def msg(update,context):
     if quest!=[]:
         update.message.reply_text(quest[0])
         quest.pop(0)
-def search(update,context):
+async def search(update,context):
     startCity = var[0].upper()
     endCity = var[1].upper()
     date = var[2]
@@ -64,18 +76,19 @@ def search(update,context):
     options.add_argument("--proxy-server=%s" % proxy) 
     url = f'https://www.oncf.ma/fr/Horaires'
     
-    options.add_argument("--headless")
-    options.add_argument("--disable-dev-shm-usage")
-#     chrome_options.add_argument("start-maximized")
-    options.add_argument("--remote-debugging-port=9222")
-    options.add_argument("--no-sandbox")
-    options.add_argument("--window-size=1920,1080")
-    options.add_argument('--ignore-certificate-errors')
-#     chrome_options.add_argument('--disable-gpu')
-#     chrome_options.add_argument("disable-infobars")
-#     chrome_options.add_argument("--disable-extensions")
-    options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
-    browser =webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=options)
+#     options.add_argument("--headless")
+#     options.add_argument("--disable-dev-shm-usage")
+# #     chrome_options.add_argument("start-maximized")
+#     options.add_argument("--remote-debugging-port=9222")
+#     options.add_argument("--no-sandbox")
+#     options.add_argument("--window-size=1920,1080")
+#     options.add_argument('--ignore-certificate-errors')
+# #     chrome_options.add_argument('--disable-gpu')
+# #     chrome_options.add_argument("disable-infobars")
+# #     chrome_options.add_argument("--disable-extensions")
+#     options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
+#     browser =webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=options)
+
     time.sleep(5)
     t=int(time.time())-((datetime.datetime.now().time().hour)*3600+datetime.datetime.now().time().minute*60+datetime.datetime.now().time().second)
     Day=int(date[:2]);Month=int(date[3:5]);Year=int(date[6:])
@@ -85,10 +98,14 @@ def search(update,context):
     nbJ=(dateA-dateToday).days
     url = f'https://www.oncf-voyages.ma/recherche-disponibilites/{cityDict[startCity]}/{cityDict[endCity]}/{t+86400*nbJ}'
     #url="https://www.oncf-voyages.ma/recherche-disponibilites"	
-    browser.get(url)
+    browser = await launch()
+    page = await browser.newPage()
+    await page.goto(f'https://www.oncf-voyages.ma/recherche-disponibilites/{cityDict[startCity]}/{cityDict[endCity]}/{t+86400*nbJ}')
+    await page.screenshot({'path': 'screenshot1.png'})
+#     browser.get(url)
     time.sleep(4)
-    browser.implicitly_wait(10)
-    browser.save_screenshot("screenshot1.png")
+#     browser.implicitly_wait(10)
+#     browser.save_screenshot("screenshot1.png")
     update.message.bot.send_photo(chat_id=update.effective_chat.id, photo=open('/app/screenshot1.png', 'rb'))	
 #     scroll=browser.find_element_by_tag_name('html')
 #     scroll.send_keys(Keys.PAGE_DOWN)
@@ -138,7 +155,8 @@ def search(update,context):
                 Str += f"De:{info[0]} à:{info[1]} prix:{info[2]} \n"
         return Str
     update.message.reply_text(results())
-    browser.quit()
+#     browser.quit()
+    await browser.close()
     
 start_handler=CommandHandler('start',start)
 simple=MessageHandler(Filters.text,msg)
