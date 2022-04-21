@@ -11,3 +11,4 @@ importlib-metadata==4.6.4
 pyinstaller==4.5.1
 pyinstaller-hooks-contrib==2021.2
 selenium-wire==1.0.3
+pyppeteer
