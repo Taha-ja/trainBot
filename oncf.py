@@ -51,10 +51,10 @@ async def main():
     browser = await launch()
     page = await browser.newPage()
     await page.goto(f'https://www.oncf-voyages.ma/recherche-disponibilites/{cityDict[startCity]}/{cityDict[endCity]}/{t+86400*nbJ}')
-    await page.screenshot({'path': 'example.png'})
+    await page.screenshot({'path': 'screenshot1.png'})
     await browser.close()
 
-asyncio.get_event_loop().run_until_complete(main())
+# asyncio.get_event_loop().run_until_complete(main())
 def start(update,context):
     var.clear()
     quest.clear()
@@ -71,9 +71,9 @@ async def search(update,context):
     startCity = var[0].upper()
     endCity = var[1].upper()
     date = var[2]
-    options = webdriver.ChromeOptions()
-    proxy = "85.159.48.170:40014" # free proxy 
-    options.add_argument("--proxy-server=%s" % proxy) 
+#     options = webdriver.ChromeOptions()
+#     proxy = "85.159.48.170:40014" # free proxy 
+#     options.add_argument("--proxy-server=%s" % proxy) 
     url = f'https://www.oncf.ma/fr/Horaires'
     
 #     options.add_argument("--headless")
@@ -119,7 +119,7 @@ async def search(update,context):
     arrive = []
     prix_ticket = []
 
-
+    asyncio.get_event_loop().run_until_complete(search(update,context))
     def getInformation():
         price = browser.find_elements_by_xpath('//label[@class="price"]')
         temps = browser.find_elements_by_xpath('//label[@class="date"]')
